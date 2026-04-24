@@ -124,9 +124,9 @@ export default function Navbar() {
                                     borderRadius: "var(--radius-sm)", cursor: "pointer", transition: "var(--transition)",
                                 }}>
                                     <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--accent)", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 600 }}>
-                                        {user.name.charAt(0).toUpperCase()}
+                                        {user.name?.charAt(0)?.toUpperCase() || "?"}
                                     </div>
-                                    <span style={{ fontSize: 14, color: "var(--text)", fontWeight: 500 }}>{user.name.split(" ")[0]}</span>
+                                    <span style={{ fontSize: 14, color: "var(--text)", fontWeight: 500 }}>{user.name?.split(" ")[0] || "User"}</span>
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                         style={{ transition: "transform 0.2s", transform: menuOpen ? "rotate(180deg)" : "rotate(0)" }}>
                                         <path d="m6 9 6 6 6-6" />
@@ -145,7 +145,7 @@ export default function Navbar() {
                                             <p style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--text-light)", marginBottom: 6 }}>Signed in as</p>
                                             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                                                 <div style={{ width: 32, height: 32, borderRadius: "50%", background: "var(--accent)", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 600 }}>
-                                                    {user.name.charAt(0).toUpperCase()}
+                                                    {user.name?.charAt(0)?.toUpperCase() || "?"}
                                                 </div>
                                                 <div>
                                                     <p style={{ fontSize: 14, fontWeight: 500 }}>{user.name}</p>
