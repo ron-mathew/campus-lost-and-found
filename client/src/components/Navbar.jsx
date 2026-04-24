@@ -5,7 +5,7 @@ import { useAccounts } from "../context/AccountContext";
 import { io } from "socket.io-client";
 import api from "../utils/api";
 
-const socket = io("http://localhost:5000");
+const socket = io(import.meta.env.VITE_SOCKET_URL || "http://localhost:5000");
 
 export default function Navbar() {
     const { user, logout } = useAuth();
