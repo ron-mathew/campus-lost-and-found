@@ -166,7 +166,7 @@ export default function Navbar() {
                                                         onMouseEnter={e => e.currentTarget.style.background = "var(--bg-subtle)"}
                                                         onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
                                                         <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--bg-subtle)", border: "1.5px solid var(--border)", color: "var(--text)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 600, flexShrink: 0 }}>
-                                                            {acc.name.charAt(0).toUpperCase()}
+                                                            {acc.name?.charAt(0)?.toUpperCase() || "?"}
                                                         </div>
                                                         <div style={{ flex: 1, minWidth: 0 }}>
                                                             <p style={{ fontSize: 13, fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{acc.name}</p>
@@ -206,7 +206,7 @@ export default function Navbar() {
                                                     onMouseEnter={e => e.currentTarget.style.background = "var(--bg-subtle)"}
                                                     onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
                                                     <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--accent)", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 600 }}>
-                                                        {acc.name.charAt(0).toUpperCase()}
+                                                        {acc.name?.charAt(0)?.toUpperCase() || "?"}
                                                     </div>
                                                     <div style={{ flex: 1 }}>
                                                         <p style={{ fontSize: 13, fontWeight: 500 }}>{acc.name}</p>

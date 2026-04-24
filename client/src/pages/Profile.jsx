@@ -64,7 +64,7 @@ export default function Profile() {
             {/* Profile header */}
             <div className="card page-enter" style={{ padding: "32px 36px", marginBottom: 24, display: "flex", alignItems: "center", gap: 28, flexWrap: "wrap" }}>
                 <div style={{ width: 80, height: 80, borderRadius: "50%", background: "var(--accent)", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 32, fontFamily: "'DM Serif Display', serif", flexShrink: 0 }}>
-                    {user.name.charAt(0).toUpperCase()}
+                    {user.name?.charAt(0)?.toUpperCase() || "?"}
                 </div>
                 <div style={{ flex: 1 }}>
                     <h1 style={{ fontSize: 28, marginBottom: 4 }}>{user.name}</h1>
