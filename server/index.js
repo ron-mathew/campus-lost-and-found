@@ -8,15 +8,24 @@ const errorHandler = require("./middleware/errorHandler");
 
 const clientUrl = (process.env.CLIENT_URL || "http://localhost:5173").replace(/\/+$/, "");
 
+// Allow production URL, Vercel preview URLs, and localhost
+const allowedOrigin = (origin, callback) => {
+    if (!origin || origin === clientUrl || origin.endsWith(".vercel.app") || origin.includes("localhost")) {
+        callback(null, origin);
+    } else {
+        callback(null, clientUrl);
+    }
+};
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
-    cors: { origin: clientUrl, methods: ["GET", "POST"] },
+    cors: { origin: allowedOrigin, methods: ["GET", "POST"] },
 });
 
 connectDB();
 
-app.use(cors({ origin: clientUrl, credentials: true }));
+app.use(cors({ origin: allowedOrigin, credentials: true }));
 app.use(express.json());
 
 // Routes
