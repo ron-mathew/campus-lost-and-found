@@ -6,15 +6,17 @@ const { Server } = require("socket.io");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/errorHandler");
 
+const clientUrl = (process.env.CLIENT_URL || "http://localhost:5173").replace(/\/+$/, "");
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
-    cors: { origin: process.env.CLIENT_URL || "http://localhost:5173", methods: ["GET", "POST"] },
+    cors: { origin: clientUrl, methods: ["GET", "POST"] },
 });
 
 connectDB();
 
-app.use(cors());
+app.use(cors({ origin: clientUrl, credentials: true }));
 app.use(express.json());
 
 // Routes
