@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-    const user = JSON.parse(localStorage.getItem("active_account") || "{}");
+    const user = JSON.parse(localStorage.getItem("active_account") || "{}") || {};
     if (user.token) config.headers.Authorization = `Bearer ${user.token}`;
     return config;
 });
